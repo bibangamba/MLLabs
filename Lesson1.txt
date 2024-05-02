@@ -1,0 +1,141 @@
+1. I would describe machine learning as how we can train a system using data such that it can give us reliable
+predictions relating to a specific task.
+
+2. A labeled training set is data that has the desired outcome or dependent variable spelled out. This is the type of
+data used when doing supervised training of an ML model.
+
+3. labelled training set is data that has the desired outcome or dependent variable spelled out. This is the type
+of data used in supervised training of an ML model.
+
+4. The two most common tasks in supervised learning are CLASSIFICATION (i.e. training a model on data and
+classifying each data item as desired or undesired) and REGRESSION (i.e. predicting a target numeric value given a set
+of data points/features)
+
+5. Unsupervised learning tasks: CLUSTERING, ANOMALY DETECTION, VISUALISATION & DIMENSIONALITY REDUCTION, and
+ASSOCIATION RULE LEARNING
+
+6. REINFORCEMENT LEARNING algorithm would be the best option for training  robot to walk in various novel terrains.
+This way it can learn through trial and error via rewards or penalties.
+
+7. CLUSTERING algorithm would be best suited for grouping customers based on their behaviour or characteristics
+
+8. I'd frame Spam Detection as a form of supervised learning since the model is trained on what is spam.
+
+9. An online learning system is one that keeps learning while in deployment. An example of this could be a virus
+detection algorithm whose model has to be updated once new attack patterns are discovered.
+
+10. Out of core learning is a technique used in ML to train a model on batches of data when the training data is too
+large to fit into memory all at once. For example millions/billions of images being classified.
+
+11. INSTANCE-BASED learning algorithms rely on similarity in new data to known data points to make predictions.
+
+12. A model parameter is a variable that the model learns from the training data whereas a hyperparameter is a kind of
+setting that tells the model how to learn e.g. the learning rate
+
+13. MODEL-BASED algorithms, like scientists, search for a model that best fits the training data. The most
+common strategy used is the COST FUNCTION which basically helps the model determine how wrong it's prediction is
+compared to the expected outcome based on the training data  (e.g. MSE). Predictions are made by applying
+the learnt model to new instances of data.
+
+14. DATA QUALITY ISSUES, DATA SCARCITY, OVERFITTING, UNDERFITTING
+
+15. When a model does well on training data but generalizes poorly to new instances, this is called OVERFITTING.
+We can address this by gathering more training data, simplifying the model, and through Regularization
+
+16. A test set is data that is split off from the whole to ensure that we have some novel data on which to test our
+model. This is needed because we want to validate that our model performs well on never seen before data
+
+17. A validation set is a further subdivision of the test data when we have more than one model to test, we give
+it for example 70% of the test data to determine performance for each model, tune the hyperparameters and validate.
+And then use the 30% as validation to basically confirm the performance seen in the 70% phase of testing.
+The goal in this case would be to validate model performance does not change drastically.
+
+18. If tuning of hyperparameters is done on the test set, we risk overfitting the parameters to the training set.
+
+19. Repeated cross-validation involves splitting the data into multiple training and validation sets and performing
+validations multiple times. It is preferred to single validation as it provides a more reliable estimate on model
+performance.
+
+
+INTERVIEW QUESTIONS
+
+Scenario: You are working on a dataset that includes patient records in a healthcare
+database. After initial analysis, you identify that 15% of the patient age data is missing.
+The dataset is fairly large, with over 100,000 records. The age data is important for your
+analysis to track disease prevalence across age groups.
+• Question 1: Describe how you would handle these missing values. Discuss the
+techniques you would consider and explain your choice. How would your approach
+change if missing values were identified in a more critical feature, such as diagnosis
+information?
+
+Answer: I would consider updating the missing ages with a mean or median age first. Secondly, I would consider using
+prediction to fill the values. And as a last resort, I would consider deletion.
+Because the data with missing values is almost 20% of the training data, I'd be reluctant to delete the values, so that
+is why it'd be my last resort. Whereas a median or average age would work well since the 75% of the data has the
+correct age values. I would say prediction using regression or similar techniques would also be a viable option although
+more complex, to avoid skewing the age data to a median age and to give more variability.
+If the missing data was diagnosis information however, this is much harder to predict as this data is much more complex.
+I would exclude those records from the training data set.
+
+
+
+• Scenario: You are tasked with cleaning a financial dataset used for forecasting stock
+prices. The dataset contains some apparent outliers in the volume of trades, which
+could potentially skew the predictive models. Preliminary analysis shows that these
+outliers represent days with significant market news.
+• Question 2: What methods would you use to detect these outliers, and how would you
+decide whether to remove or adjust these data points in the dataset? Outline the
+potential impacts of your decision on the forecast model's performance.
+
+Answer: For outlier detection, I would use Z-Score (no. of standard deviations from mean) and
+IQR (Inter Quartile Range) which is Q3-Q1, which we'd get after sorting and diving the data into quarters.
+I would remove outliers that are too far from the mean as they might affect training the model.
+This would improve model performance and reduce chances of overfitting. The downside here is the potential loss of
+insight into important events leading to reduced accuracy since the model didn't get a proper understanding of
+the outliers.
+
+
+
+• Scenario: Imagine you are preparing a dataset for a machine learning model that
+predicts real estate prices. The dataset features have varying scales and distributions,
+including property size in square feet and local crime rate per 1,000 residents.
+• Question 4: Would you choose to normalize or standardize these features, and why?
+Provide a detailed explanation of how each process would affect the data and the
+model's learning process. What might be the implications of choosing one method over
+the other in terms of model performance and accuracy?
+
+Answer: I would choose to do both but probably prefer normalisation if I had to pick one. For normalisation, this
+would bring all the feature variables down to a range of 0 to 1. This way, no one variable could bias the model by
+being considered as more important since all the variables would be within the same range.
+Whereas standardization would centre the distributions to a common scale where 0 is the mean and with a standard
+deviation of 1. This way, features with larger distributions will not sway the model compared to features that have a
+smaller distribution.
+By choosing normalisation over standardization, we gain the benefit of preventing bias towards larger values in the
+features but lose the info on distribution from the original data.
+And if it were vice-versa, then the features that have larger values might bias the model towards themselves over
+smaller values, but we would maintain the original distribution info.
+
+
+LESSON 2 SUMMARY
+
+Lesson 2 is about regression, which is a way to estimate relationships between dependent variables and independent ones.
+
+Dependent variables are the features, whereas dependent variables are the outcomes.
+
+Regression is important for predictive analysis, decision-making and understand features (independent variables)
+
+The lesson also covers Linear (simple and multiple), Polynomial, and Ridge regressions
+
+It explains how we can calculate the intercept and slopes from the linear regression equation
+
+It also covers Mean Square Error (MSE) which is a cost function i.e. a determinant for how wrong the model is.
+The lesson also covers Root MSE which is used when you need to heavily punish errors.Although MSE is important as it
+explodes the error, so it's more visible.
+
+Further on polynomial regression, we see that it's similar to linear but with the independent variables modeled to the
+N-th degree. This is helpful to model non-linear or complex relationships.
+
+The lesson also goes over Regularization, which is a way to combat overfitting. This involves introducing a penalty
+term to the loss  or cost function.
+
+We also got a short intro into non-linear regression.

@@ -1,0 +1,76 @@
+1. Scenario on Handling Multicollinearity: Imagine you are working with a dataset
+intended to predict housing prices based on features like size, location, age of the
+property, and proximity to amenities. During your analysis, you discover significant
+multicollinearity between the size of the house and its age. Describe the steps you
+would take to address this issue. Which specific techniques or metrics would you use to
+confirm and mitigate multicollinearity to ensure the stability and interpretability of your
+model?
+
+Answer:
+To address this particular instance of multicollinearity, I would choose regularisation as a measure to reduce
+or penalize huge coefficients. Although removing one of the variables is also a viable option, I would prefer to keep
+both because age is a pretty important predictor of price, and size is too. So rather than lose one of those predictors,
+keeping both and managing the multicollinearity with regularisation makes the most sense to me. The same reason applies
+for why I would not choose to combine the two predictors. I'd want to keep the two predictors in their original state.
+To confirm the multicollinearity, I would calculate each variable's VIF (variable inflation factor) and if it's above 5
+for both independent variables, this would be confirmation. Additionally, I might also create a correlation matrix for
+each pair of independent variables and if the two variables (age and size) have correlation coefficient close to 1 or -1,
+this would be further confirmation of multicollinearity. A zero or closer to zero coefficient would indicate otherwise.
+
+
+
+2. Scenario on Model Evaluation Metrics: You have developed a multiple linear regression
+model to forecast quarterly sales based on advertising spend, seasonal effects, and
+economic conditions. The model has an R-squared of 0.85, but your client is concerned
+about the reliability of predictions. Discuss how you would use MSE and RMSE in this
+scenario to evaluate model performance further. Explain the implications of these
+metrics and how they might influence your recommendations for model adjustments or
+client expectations.
+
+Answer:
+An R-squared value of 0.85 indicates that the model has a good fit on the data. However, this doesn't guarantee accurate
+predictions for quarterly sales, so the client is right to be concerned about this. I would use MSE
+(mean squared error) which is an average of the summed up differences between actual sales and predicted sales.
+The RMSE (root MSE) would  be the square root of the MSE.
+If the MSE and RMSE are high, then this would indicate a low accuracy in predictions from this model. this would then
+lead to further analysis to understand why model performance is poor and how to make adjustments.
+And if the MSE & RMSE are low, then this would suggest a better accuracy in predictions and therefore re-assure the client.
+The adjustments to the model have to come from understanding the problem first, so I would check if the predictors are
+not enough, or if some very relevant ones were not included, I'd look at the quality of the data, check for prevalence of
+outliers and their causes.
+Regarding the client's expectations, I would emphasize the uncertainty in forecasting and indicate that the value of
+the model would be in identifying general trends, rather than predicting actual future sales. Even if the MSE & RMSE are
+low.
+
+
+*** Read and summarize Lesson 3
+
+Lesson 3 is about classification, which is another type of supervised learning.
+
+It is different from regression in that it predicts the class/category instead of a numeric value like regression.
+
+It is very useful for decision-making and that can be seen in some of its applications
+i.e. credit scoring, face recognition, customer segmentation and disease/medical diagnosis.
+
+We can have binary or multiclass classification whereby, binary refers to two categories/classes. and multiclass
+refers to multiple categories/classes.
+
+The lesson also covers the classification process i.e.
+Define the problem -> gather data -> preprocess data ->split the data -> choose a model -> train the model ->
+test/evaluate the model -> tune & optimise -> deploy -> gather feedback -> if performance regresses, go to one again.
+
+The lesson also hints at evaluation of classification models being much harder/complex than regression models.
+
+The lesson then covers encoding, which is the conversion of text predictor variables into numeric values. This is done
+because ML models work/perform much better with numric values. We see that it can be done in two ways, ONE-HOT
+and ORDINAL.
+
+ONE-HIT refers to having 0 or 1 as the possible values, where only one variable will be assigned 1 and all the others
+will be assigned 0. This shouldn't be done if the text values have a lot of options as it would impact
+model performance.
+ORDINAL refers to assigning a numeric value to each distinct text variable i.e. 1,2,3,4, etc
+
+The lesson then talks about Logistic Regression as a type of classification model because it gives us s probability.
+Although we also see that it's best for binary classification, or a limited number of options.
+
+The lesson also covers the gradient descent algorithm
