@@ -1,0 +1,31 @@
+Scenario: You are developing a machine learning model to classify news articles into
+multiple categories such as politics, sports, technology, and entertainment. The dataset
+contains thousands of articles, each labeled with one of these categories. The text data
+is highly dimensional due to the vast vocabulary and the dataset includes both short and
+long articles.
+• Question: Discuss how you would approach building this classifier. What steps would
+you take to handle the high dimensionality and variability in article length? Explain your
+choice of classification algorithm considering the nature of the data and the need for
+model interpretability.
+
+Answer:
+I would preprocess the text data by converting it into numeric representations using an encoder.
+To handle high dimensionality, I would consider techniques such as PCA (principal component analysis) for
+dimensionality reduction. Handling variability in article length can be achieved through padding or truncation.
+I would choose Random Forest or Gradient Boosting for classification because they
+handle high-dimensional data effectively.
+
+
+Scenario: You have developed a model to predict whether a customer will default on a loan.
+The initial model, a logistic regression, performs adequately, but you believe performance can
+be improved.
+Question: Describe the steps you would take to optimize this model. What alternative models
+might you consider and why? How would you handle the deployment of this model in a
+production environment to ensure it remains accurate over time? Discuss how you would set
+up a feedback loop for continuous model improvement.
+
+Answer:
+I would choose to do feature engineering to create additional features. Evaluate other classification models like
+Gradient Boosting because it can capture non-linear relationships between features. I would also consider hyperparameter
+tuning can optimize model performance. Deploy the model with robust monitoring for real-time performance tracking.
+I would establish a feedback loop to regularly update the model with new data and insights.

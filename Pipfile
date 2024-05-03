@@ -9,6 +9,9 @@ jupyter = "*"
 scikit-learn = "*"
 matplotlib = "*"
 numpy = "*"
+pandas = "*"
+xgboost = "*"
+statsmodels = "*"
 
 [dev-packages]
 
