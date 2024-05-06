@@ -12,6 +12,7 @@ numpy = "*"
 pandas = "*"
 xgboost = "*"
 statsmodels = "*"
+tensorflow = "*"
 
 [dev-packages]
 

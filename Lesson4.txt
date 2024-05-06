@@ -1,0 +1,83 @@
+Question 1
+
+Layers:
+1. Input Layer:
+Multiple input neurons/channels for each sensor type (e.g. RGB channels for camera images,
+depth data for LiDAR, speed and distance for radar).
+Also do preprocessing of the data like normalization of pixel values for images and standardize numerical
+data (speed, distance), resizing of the images for consistency and to reduce complexity.
+
+2. Feature Extraction Layer(s):
+Convolutional Neural Networks (CNNs): Multiple CNN layers for each sensor modality to extract features like edges,
+shapes, and objects from images, and spatial information from LiDAR and radar data.
+Number of layers: 3-5 convolutional layers per sensor type, depending on complexity.
+Filter sizes: Start with smaller filters (3x3) and increase gradually (5x5) to capture different levels of detail.
+Activation function: ReLU for its efficiency and ability to avoid vanishing gradients.
+
+3. Fusion Layer:
+Purpose: Combine features from different sensors into a unified representation by concatenating feature maps from
+each CNN or using a more sophisticated techniques.
+
+4. Contextual Understanding Layers:
+Recurrent Neural Network (RNN): Process the fused features sequentially to understand temporal context, predict future
+states of the environment, and make decisions based on past information.
+Activation function: Tanh or ReLU.
+
+5. Output Layer:
+This would depend on the desired control outputs. for example:
+- Steering angle prediction can be a single output neuron with a continuous value using a linear activation function.
+- Lane keeping could be multiple output neurons representing probabilities of staying in the current lane,
+changing lanes left or right, with softmax activation.
+- Object detection and classification would be multiple outputs for class/object type probabilities
+softmax activations, respectively.
+
+Handling Varying Conditions:
+- Data Augmentation: Train the network with diverse data including various lighting conditions (day, night, dusk, dawn),
+weather (sunny, rainy, foggy), and traffic scenarios.
+- Sensor Fusion: Combine data from multiple sensors to create a more robust and reliable understanding of the
+environment, compensating for limitations of individual sensors under challenging conditions.
+
+Other Considerations:
+- Training data quality and quantity: A large and diverse dataset is crucial for effective training.
+- Computational efficiency: Optimize the architecture for real-time performance on embedded platforms.
+- Safety and reliability: Implement redundancy and safety measures to ensure reliable operation in critical situations.
+
+
+Question 2
+
+Layers
+
+1. Input Layer:
+Preprocessing: Normalization and image resizing for consistency. We could also augment the dataset by adding flipped
+and/or rotated images for better model performance.
+
+2. Feature Extraction Layers:
+Convolutional Neural Networks: To extract features like edges, textures, shapes, and anatomical structures from
+the images.
+Number of layers: Several convolutional layers (e.g., 5-10) with increasing complexity to learn hierarchical features.
+Filter/Kernel sizes: Start with smaller filters (3x3) to capture fine details and gradually increase (5x5) for
+broader context.
+Activation function: ReLU for its efficiency and to avoid vanishing gradients.
+
+3. Classification Layers:
+Integrate features and learn non-linear relationships between them.
+Number of layers: 1-2 fully connected layers for combining features and making final predictions.
+Activation function: ReLU for hidden layers.
+
+5. Output Layer:
+Number of neurons depends on the number of disease stages or classifications.
+Activation function: Softmax,  for multi-class classification, outputting a probability distribution across the
+different stages (could probably have a neuron dedicated to "no disease" class).
+
+Training for Subtle Variations:
+High-quality annotated data: A large dataset with expert annotations differentiating subtle variations in disease
+stages is important.
+Dataset augmentation: Use techniques like random noise injection, image warping, or brightness/contrast adjustments to
+simulate variations and improve model robustness.
+Fine-tuning: by pre-training the CNN on a large dataset of similar medical images and then fine-tune on the specific disease
+dataset to leverage learned features, improve performance and reduce overfitting.
+
+Loss Function:
+Categorical Cross-Entropy is normally used when evaluating multi-class classification tasks and works well with the
+softmax activation function. It's a great option because it penalizes the model more for mis-classifying
+with high confidence, which is important for accurate medical diagnosis.
