@@ -1,4 +1,5 @@
-Sorry, I forgot to add the code link to the submission, please find it here: https://github.com/bibangamba/MLLabs/blob/main/Lesson6_CNN_Classification.ipynb
+Sorry, I forgot to add the code link to the submission, please find it here:
+https://github.com/bibangamba/MLLabs/blob/main/Lesson6_CNN_Classification.ipynb
 
 Interview Questions
 • Consider a CNN tasked with classifying scenes into categories such as beaches, forests, and
