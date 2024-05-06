@@ -13,6 +13,8 @@ pandas = "*"
 xgboost = "*"
 statsmodels = "*"
 tensorflow = "*"
+scikit-image = "*"
+opencv-python = "*"
 
 [dev-packages]
 
