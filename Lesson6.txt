@@ -1,0 +1,52 @@
+• Consider a CNN tasked with classifying scenes into categories such as beaches, forests, and
+cities. Discuss the role of pooling layers in this context. Would you choose max pooling or
+average pooling, and why? How does the choice of pooling strategy affect the network's ability
+to generalize from training data to new, unseen images? What are the implications of this
+choice for the spatial resolution and the computational efficiency of the network?
+
+Pooling layers down-sample feature-maps which can have several benefits:
+- reduce dimensionality of features
+- reduce computational load of training the model
+- improved use of memory
+- retention of spatial information despite a reduction in information input (average pooling)
+- translation invariance or robustness against small changes in the input image (max pooling)
+- feature abstraction by discarding the "unnecessary" parts
+
+Max or Mean/Average pooling:
+I would choose max pooling because it considers the largest values i.e. the most noticeable features in the pool window
+which for scene detection is the most important. There would be a loss of spatial information compared to average
+pooling, but for this task, that would not be as important. A side-benefit of this strategy is that it is slightly less
+intensive computationally, compared to average pooling which has to calculate the average in each window.
+
+Effect of choosing max pooling is that it generalizes well to unseen images since it would check for the presence of
+certain features, and it would not care about their location in the image e.g. tall buildings, large body of water, trees.
+
+
+
+• You are optimizing a CNN that categorizes x-ray images into normal and various types of
+pathological findings. The network currently uses ReLU activation functions. However, you
+notice that some neurons are becoming inactive and not learning during training—a problem
+often referred to as "dying ReLU." How would you address this issue? Would you consider
+switching to another activation function or modifying the network architecture? Explain your
+reasoning and the expected impact on the network’s learning capability and performance.
+
+I would first analyse the cause for the dead neurons (dying ReLu) for example initial large negative wights/bias, high
+learning rate, input data leans a lot more to large negative values.
+I would consider moving to a different activation function like Leaky ReLu, Parametric ReLu (PReLu), and
+ELU (exponential linear unit).
+Both Leaky ReLu and Parametric ReLu are similar to ReLu and to each other. The distinction is that Leaky ReLu can
+return a small positive gradient (e.g. 0.01) if the input is negative or zero. Parametric ReLu is different in that the
+small non-negative gradient is learned during training which is more flexible that leaky relu.
+Whereas ELU is also enforces a non-zero gradient for negative inputs i.e. if x <= 0, gradient = alpha * ((e^x) - 1)
+where alpha is a hyperparameter passed in to control the negative gradient.
+If the number of dead neurons is large, i'd switch to ELU even though it's more computationally intensive.
+If the number of dead neurons is few, i'd pick PReLu or Leaky ReLu.
+
+Impact:
+- improved learning capability and potentially faster convergence since there wouldn't be any dead neurons leading to
+better flow for backpropagation.
+- better model performance and generalization because it did not rely on a few neurons for training like it would
+with some dead neurons.
+
+
+
