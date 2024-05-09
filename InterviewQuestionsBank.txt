@@ -82,8 +82,7 @@ critical nature of accurate medical diagnostics.
 
 
 # Lesson5 — Convolutional Operations, Kernels/Filters, Feature Map
-
-No interview questions provided
+No sample interview/scenario questions provided
 
 # Lesson6 — ConvolutionalNeuralNetworks, more layers: (PoolingLayer, DropoutLayer, FlattenLayer, ConvolutionalLayer, FullyConnectedLayer? )
 
@@ -100,3 +99,25 @@ often referred to as "dying ReLU." How would you address this issue? Would you c
 switching to another activation function or modifying the network architecture? Explain your
 reasoning and the expected impact on the network’s learning capability and performance.
 
+# Lesson7 — Decision Trees and Random Forests
+No sample interview/scenario questions provided
+
+# Lesson8 — Ensemble Methods
+
+1.High-Dimensional Data Scenario:
+• Question: You are tasked with creating a predictive model for genetic data
+classification, where each sample may have thousands of features. Explain how you
+would apply the Random Patches and Random Subspaces methods of ensemble
+learning to handle the high dimensionality. Discuss the potential benefits and
+limitations of these methods in terms of feature selection, model accuracy, and
+computational efficiency.
+
+2.Stacking Ensemble Scenario:
+• Question: Consider you have three different machine learning models: a Logistic
+Regression classifier, a Decision Tree classifier, and a Support Vector Machine, all
+performing with moderate accuracy on a text classification problem. You want to
+improve the performance using a stacking ensemble approach. Detail the steps you
+would take to implement this ensemble, including how you would generate training
+sets for each layer, how you would choose the blender or meta-learner, and how you
+would validate the performance of your ensemble model compared to the individual
+classifiers.
