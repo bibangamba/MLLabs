@@ -17,6 +17,9 @@ scikit-image = "*"
 opencv-python = "*"
 cifar10 = "*"
 mnist = "*"
+seaborn = "*"
+hvplot = "*"
+imblearn = "*"
 
 [dev-packages]
 
