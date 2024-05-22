@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 ipykernel = "*"
 jupyter = "*"
-scikit-learn = "*"
 matplotlib = "*"
 numpy = "*"
 pandas = "*"
@@ -20,6 +19,7 @@ mnist = "*"
 seaborn = "*"
 hvplot = "*"
 imbalanced-learn = "*"
+scikit-learn = "==1.4.2"
 
 [dev-packages]
 
