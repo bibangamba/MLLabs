@@ -19,7 +19,7 @@ cifar10 = "*"
 mnist = "*"
 seaborn = "*"
 hvplot = "*"
-imblearn = "*"
+imbalanced-learn = "*"
 
 [dev-packages]
 
